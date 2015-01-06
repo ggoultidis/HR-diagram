@@ -1,2 +1,2 @@
-HR-diagram
+# HR-diagram
 ==========
