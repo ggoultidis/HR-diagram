@@ -1,4 +1,4 @@
-# HR-diagram
+HR-diagram
 
 bla bla
 ==========
