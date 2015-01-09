@@ -21,16 +21,17 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
       var axis_format = d3.format("04d");
 
       var x = d3.scale.log()
-        .domain([1,5000])
-        .range([0, width]);
+        .domain([1000,50000])
+        .range([width, 0]);
 
-      var y = d3.scale.linear().domain([2525.77, 10843.57])
+      var y = d3.scale.linear().domain([0, 5])
           .range([height, 0]);
 
       var xAxis = d3.svg.axis()
           .scale(x)
           .orient("bottom")
-          .tickFormat(axis_format);
+          .tickFormat(axis_format)
+          .ticks(10);
 
       var yAxis = d3.svg.axis()
           .scale(y)
@@ -45,8 +46,9 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
 
       // console.log(data.points);
 
-      x.domain(d3.extent(data.points, function(d) { return parseInt(d[0]); }));
-      y.domain(d3.extent(data.points, function(d) { return parseInt(d[1]); }));
+      // Gives domain between min and max >> .extent <<
+      // x.domain(d3.extent(data.points, function(d) { return parseInt(d[0]); }));
+      // y.domain(d3.extent(data.points, function(d) { return parseInt(d[1]); }));
 
       svg.append("g")
           .attr("class", "x axis")
@@ -57,7 +59,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
           .attr("x", width)
           .attr("y", -6)
           .style("text-anchor", "end")
-          .text("Temperature");;
+          .text("Temperature");
 
       svg.append("g")
           .attr("class", "y axis")
