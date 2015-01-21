@@ -6,9 +6,33 @@
   <title></title>
   
   <body>
+
     
 
-    <script src="d3.v3.js"></script>
-    <script src="HR_anim.js"></script>
+    <div id="starSelectionContainer">
+    	Select Binary Star configuration<br>
+	    <!-- <input type="radio" name="binary" id="binary1" value="starSet1" checked="checked">
+	    <label for="binary1">20.00_15.00_+1.00</label><br>
+
+	    <input type="radio" name="binary" id="binary2" value="starSet2">
+
+	    <label for="binary2">20.00_15.00_+2.00</label><br>
+	    <p id="test">hoi</p> -->
+
+
+	    <select id = "binary_menu" class="DropDown">
+		<option value="binary1" selected="selected">20.00_15.00_+1.00</option>
+		<option value="binary2">20.00_15.00_+1.20</option>
+		<option value="binary3">20.00_15.00_+1.40</option>
+		<option value="binary4">20.00_15.00_+1.60</option>
+		<option value="binary5">20.00_15.00_+1.80</option>
+		<option value="binary6">20.00_15.00_+2.00</option>
+  		</select> 
+
+
+	</div>
+
+	<script src="d3.v3.js"></script>
+    <script src="HR_anim_oneStar.js"></script>
   </body>
 </html>
