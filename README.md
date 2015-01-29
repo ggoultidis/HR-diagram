@@ -3,6 +3,8 @@ by George Goultidis
 
 Purpose: To illuminate the proccess of stellar evolution and enable comparing between stellar tracks on HR and mass-Surface He4 diagrams.
 
+Data was provided by Selma de Mink and Ylva Gotberg to whom a lot of gratitude is owed.
+
 This is a public domain release.
 
 Copyright (c) 2015, George Goultidis
