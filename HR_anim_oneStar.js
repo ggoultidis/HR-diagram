@@ -2,11 +2,11 @@
 
 
 // Variables to be used for comunication between selections and animation
-var binary = "HR_1";
+var binary = "Json_files/HR_1";
 var star = "_d";
 var attribute = "A"; 
 
-var fileName = "HR_1_d.json";
+var fileName = "Json_files/HR_1_d.json";
 var stopped = false;
 
 var lineArray = ["line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8", "line9",
@@ -91,7 +91,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
 
 //scales for graph 1
 var x = d3.scale.log()
-  .domain([10000,300000])
+  .domain([4000,300000])
   .range([width, 0]);
 
 var y = d3.scale.log()
@@ -209,7 +209,7 @@ function StartAnimation(jsonFile, lineName){
     var stars = svg.selectAll("dot")
       .data([data.points[0]])
     .enter().append("circle")
-      .attr("r", function(d) { return d[5]; })
+      .attr("r", function(d) { return d[5]/2; })
       .attr("cx", function(d) { return x(d[3]); })
       .attr("cy", function(d) { return y(d[4]); })
       .style("fill", "blue");
@@ -228,79 +228,80 @@ function StartAnimation(jsonFile, lineName){
     
     // update function, takes care of the motion
     function update(model_num){
+
       stars.data([data.points[model_num]]);
       stars2.data([data.points[model_num]]);
 
+      console.log(model_num);
+
       if(!stopped){
-        if (data.points.length - 1 > (model_num % data.points.length)){
 
-          // transition the circle in the HR diagram
-          var tr = stars.transition()
-            .duration(duration)
-            .attr("r", function(d) { return d[5]; })
-            .attr("cx", function(d) { return x(d[3]); })
-            .attr("cy", function(d) { return y(d[4]); })
-            .style("fill", "blue");
-
-          
-
-          var line_path_1 = []
-
-          for (var j = 0; j < model_num; j = j + 10){
-            line_path_1.push({"X" : data.points[j][3], "Y" : data.points[j][4]});  
-          }
-
-          // draw line in HR diagram
-          var draw_line = d3.svg.line()
-            .x(function(d){return x(d.X);})
-            .y(function(d){return y(d.Y);})
-            .interpolate("linear");
-
-
-          var delete_line = d3.selectAll("path.lineName").remove();
-
-          var line_graph = svg.append("path")
-            .attr("class", lineName)
-            .attr("d", draw_line(line_path_1))
-            .attr("stroke", "blue")
-            .attr("stroke-width", 1)
-            .attr("fill", "none");
-
-
-          // transition the circle in the 2nd graph
-          var tr2 = stars2.transition()
+        // transition the circle in the HR diagram
+        var tr = stars.transition()
           .duration(duration)
-          .attr("r", function(d) { return 3; })
-          .attr("cx", function(d) { return x2(d[2]); })
-          .attr("cy", function(d) { return y2(d[6]); })
+          .attr("r", function(d) { return d[5]/2; })
+          .attr("cx", function(d) { return x(d[3]); })
+          .attr("cy", function(d) { return y(d[4]); })
           .style("fill", "blue");
 
-          
-          // draw line in graph 2
-          var line_path_2 = []
 
-          for (var j = 0; j < model_num; j = j + 10){
-            line_path_2.push({"X" : data.points[j][2], "Y" : data.points[j][6]});  
-          }
+        var line_path_1 = []
 
-          
-          var draw_line2 = d3.svg.line()
-            .x(function(d){return x2(d.X);})
-            .y(function(d){return y2(d.Y);})
-            .interpolate("linear");
-
-
-          var delete_line = d3.selectAll("path.lineName").remove();
-
-          var line_graph2 = svg2.append("path")
-            .attr("class", lineName)
-            .attr("d", draw_line2(line_path_2))
-            .attr("stroke", "blue")
-            .attr("stroke-width", 1)
-            .attr("fill", "none");
-         
+        for (var j = 0; j < model_num; j = j + 10){
+          line_path_1.push({"X" : data.points[j][3], "Y" : data.points[j][4]});  
         }
-        setTimeout(function(){update((model_num + 10) % 3300);}, duration + delay);
+
+        // draw line in HR diagram
+        var draw_line = d3.svg.line()
+          .x(function(d){return x(d.X);})
+          .y(function(d){return y(d.Y);})
+          .interpolate("linear");
+
+
+        var delete_line = d3.selectAll("path.lineName").remove();
+
+        var line_graph = svg.append("path")
+          .attr("class", lineName)
+          .attr("d", draw_line(line_path_1))
+          .attr("stroke", "blue")
+          .attr("stroke-width", 1)
+          .attr("fill", "none");
+
+
+        // transition the circle in the 2nd graph
+        var tr2 = stars2.transition()
+        .duration(duration)
+        .attr("r", function(d) { return 3; })
+        .attr("cx", function(d) { return x2(d[2]); })
+        .attr("cy", function(d) { return y2(d[6]); })
+        .style("fill", "blue");
+
+        
+        // draw line in graph 2
+        var line_path_2 = []
+
+        for (var j = 0; j < model_num; j = j + 10){
+          line_path_2.push({"X" : data.points[j][2], "Y" : data.points[j][6]});  
+        }
+
+        
+        var draw_line2 = d3.svg.line()
+          .x(function(d){return x2(d.X);})
+          .y(function(d){return y2(d.Y);})
+          .interpolate("linear");
+
+
+        var delete_line = d3.selectAll("path.lineName").remove();
+
+        var line_graph2 = svg2.append("path")
+          .attr("class", lineName)
+          .attr("d", draw_line2(line_path_2))
+          .attr("stroke", "blue")
+          .attr("stroke-width", 1)
+          .attr("fill", "none");
+         
+        
+        setTimeout(function(){update((model_num + 10) % data.points.length);}, duration + delay);
       }
     }
 
