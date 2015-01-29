@@ -6,33 +6,41 @@
   <title></title>
   
   <body>
-
+    <h1 id="title">Stelar Evolution tracks</h1>
+    <h3 id="subtitle"> by George Goultidis</h3>
+    
+    <div>
+        <div id="starSelectionContainer">
+            <div>
+                Select Binary Star configuration<br>
+                <select id = "ConfigurationMenu" class="DropDown">
+                    <option value="HR_1" selected="selected">20.00_15.00_+1.00</option>
+                    <option value="HR_2">20.00_15.00_+1.20</option>
+                    <option value="HR_3">20.00_15.00_+1.40</option>
+                    <option value="HR_4">20.00_15.00_+1.60</option>
+                    <option value="HR_5">20.00_15.00_+1.80</option>
+                    <option value="HR_6">20.00_15.00_+2.00</option>
+                </select>
+            </div>
+            <div>
+                Select star from binary system<br>
+                <select id = "BinaryMenu" class="DropDown">
+                    <option value="_d" selected="selected">Donor</option>
+                    <option value="_a">Accretor</option>
+                </select> 
+            </div>
+        </div>
+        <div id="buttonContainer">
+            <input id="StartButton" type="button" value="Start" class="ControlButton"/>
+            <input id="StopButton" type="button" value="Stop" class="ControlButton"/>
+            <input id="ClearButton" type="button" value="Clear" class="ControlButton"/>
+        </div>
+        <div id="graph2Container"></div>
+    </div>
+    <div id="HRcontainer"></div>
     
 
-    <div id="starSelectionContainer">
-    	Select Binary Star configuration<br>
-	    <!-- <input type="radio" name="binary" id="binary1" value="starSet1" checked="checked">
-	    <label for="binary1">20.00_15.00_+1.00</label><br>
-
-	    <input type="radio" name="binary" id="binary2" value="starSet2">
-
-	    <label for="binary2">20.00_15.00_+2.00</label><br>
-	    <p id="test">hoi</p> -->
-
-
-	    <select id = "binary_menu" class="DropDown">
-		<option value="binary1" selected="selected">20.00_15.00_+1.00</option>
-		<option value="binary2">20.00_15.00_+1.20</option>
-		<option value="binary3">20.00_15.00_+1.40</option>
-		<option value="binary4">20.00_15.00_+1.60</option>
-		<option value="binary5">20.00_15.00_+1.80</option>
-		<option value="binary6">20.00_15.00_+2.00</option>
-  		</select> 
-
-
-	</div>
-
-	<script src="d3.v3.js"></script>
+    <script src="d3.v3.js"></script>
     <script src="HR_anim_oneStar.js"></script>
   </body>
 </html>

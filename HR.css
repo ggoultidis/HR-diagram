@@ -1,22 +1,70 @@
-#USA_JSON{
-	visibility:hidden;
+html {
+    margin: 0 auto;
+    max-width: 900px;
 }
 
 path { 
-  stroke: steelblue;
-  stroke-width: 2;
-  fill: none;
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
 }
  
 .axis path,
 .axis line {
-	fill: none;
-	stroke: black;
-	stroke-width: 1;
-	shape-rendering: crispEdges;
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
 }
 
+#starSelectionContainer{
+    /*position: relative;
+    float: right;*/
+   /* position:absolute;
+    width:300px;
+    height:50px;
+    z-index:15;*/
+    /*left:50%;*/
+    margin: 0 auto;
+    display: inline-block;
+    width:220px;
+    margin-right: 0px;
+    margin-top: 50px;
+}
 
+.DropDown{
+    font-size: 20px;
+    width:200px;
+    display: inline-block;
+}
+
+.ControlButton {
+    cursor: pointer;
+    font-size: 15px;
+    position: relative;
+    float:top;
+}
+
+#HRcontainer{
+    width:700px;
+    height:400px;
+    margin-right: 0px;
+    position:relative;
+    float:bottom;
+}
+#graph2Container{
+    width:400px;
+    height:200px;
+    position:relative;
+    float:right;
+}
+#buttonContainer{
+    width:200px;
+    display: inline-block;
+}
+#title,#subtitle{
+    text-align: center;
+}
 /**,
 *:before,
 *:after {
@@ -35,7 +83,7 @@ path {
  
 .axis path,
 .axis line {
-	fill: none;
-	stroke: black;
-	stroke-width: 1;
-	shape-rendering: crispEdges;*/
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;*/
