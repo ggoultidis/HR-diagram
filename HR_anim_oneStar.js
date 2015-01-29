@@ -232,8 +232,6 @@ function StartAnimation(jsonFile, lineName){
       stars.data([data.points[model_num]]);
       stars2.data([data.points[model_num]]);
 
-      console.log(model_num);
-
       if(!stopped){
 
         // transition the circle in the HR diagram
